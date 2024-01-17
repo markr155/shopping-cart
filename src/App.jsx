@@ -1,11 +1,16 @@
 import NavBar from './Components/Navbar';
 import { Outlet } from 'react-router-dom';
+import { useState } from 'react';
 
-export default function App() {
+const App = () => {
+	const [cart, setCart] = useState([]);
+
 	return (
 		<>
-			<NavBar />
-			<Outlet />
+			<NavBar cart={cart} />
+			<Outlet context={[cart, setCart]} />
 		</>
 	);
-}
+};
+
+export default App;

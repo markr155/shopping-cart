@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function NavBar() {
+export default function NavBar({ cart }) {
 	return (
 		<div>
 			<h1>Store Name</h1>
@@ -15,7 +15,9 @@ export default function NavBar() {
 					<Link to='about'>About</Link>
 				</li>
 				<li>
-					<Link to='cart'>Cart</Link>
+					<Link to='cart'>
+						Cart{cart.length > 0 ? `(${cart.length})` : null}
+					</Link>
 				</li>
 			</ul>
 		</div>
