@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function NavBar({ cart }) {
 	return (
@@ -22,4 +23,8 @@ export default function NavBar({ cart }) {
 			</ul>
 		</div>
 	);
+
+	NavBar.PropTypes = {
+		cart: PropTypes.array.isRequired,
+	};
 }
