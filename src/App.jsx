@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { useState } from 'react';
 
 const App = () => {
-	const [cart, setCart] = useState([1, 3]);
+	const [cart, setCart] = useState([0]);
 
 	return (
 		<>
