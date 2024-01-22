@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom';
 
-export default function Cart() {
+const Cart = () => {
 	const [cart, setCart] = useOutletContext();
 	return (
 		<>
@@ -9,4 +9,6 @@ export default function Cart() {
 			{cart.map((item, index) => (item ? <p key={index}>{item}</p> : null))}
 		</>
 	);
-}
+};
+
+export default Cart;

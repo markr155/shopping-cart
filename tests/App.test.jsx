@@ -1,11 +1,20 @@
-import { describe, it, expect } from 'vitest';
+import App from '../src/App';
+import NavBar from '../src/Components/Navbar';
+import { BrowserRouter } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
+import Home from '../src/Pages/Home';
+import { it } from 'vitest';
 
-describe('something truthy and falsy', () => {
-	it('true to be true', () => {
-		expect(true).toBe(true);
+describe('Default page loads', () => {
+	it('NavBar renders', () => {
+		const { container } = render(<NavBar cart={[]} />, {
+			wrapper: BrowserRouter,
+		});
+		expect(container).toMatchSnapshot();
 	});
 
-	it('false to be false', () => {
-		expect(false).toBe(false);
+	it('Home renders', () => {
+		const { container } = render(<Home />, { wrapper: BrowserRouter });
+		expect(container).toMatchSnapshot();
 	});
 });

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default function NavBar({ cart }) {
+const NavBar = ({ cart }) => {
 	return (
 		<div>
 			<h1>Store Name</h1>
@@ -27,4 +27,6 @@ export default function NavBar({ cart }) {
 	NavBar.PropTypes = {
 		cart: PropTypes.array.isRequired,
 	};
-}
+};
+
+export default NavBar;

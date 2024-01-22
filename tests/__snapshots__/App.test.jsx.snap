@@ -1,0 +1,59 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Default page loads > Home renders 1`] = `
+<div>
+  <h1>
+    Home
+  </h1>
+  <img
+    alt="shop image"
+  />
+  <button>
+    <a
+      href="/store"
+    >
+      Shop Now
+    </a>
+  </button>
+</div>
+`;
+
+exports[`Default page loads > NavBar renders 1`] = `
+<div>
+  <div>
+    <h1>
+      Store Name
+    </h1>
+    <ul>
+      <li>
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/store"
+        >
+          Store
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <a
+          href="/cart"
+        >
+          Cart
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
