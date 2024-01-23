@@ -2,6 +2,7 @@ import { useOutletContext } from 'react-router-dom';
 
 const Cart = () => {
 	const [cart, setCart] = useOutletContext();
+
 	return (
 		<>
 			<h1>Cart Page</h1>
