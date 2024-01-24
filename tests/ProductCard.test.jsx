@@ -35,6 +35,11 @@ describe('Product card renders each element', () => {
   it('Number field rendered', () => {
     expect(screen.queryByDisplayValue('0')).toBeInTheDocument();
   });
+  it('Add to cart button rendered', () => {
+    expect(
+      screen.queryByRole('button', { name: 'Add to Cart' })
+    ).toBeInTheDocument();
+  });
   it('Increment button increases number field by 1', async () => {
     const user = userEvent.setup();
     const inputField = screen.queryByDisplayValue('0');
@@ -43,22 +48,22 @@ describe('Product card renders each element', () => {
     await user.click(button);
     expect(inputField.value).toMatch('1');
   });
-	it('Decrement button decreases number field by 1', async () => {
+  it('Decrement button decreases number field by 1', async () => {
     const user = userEvent.setup();
     const inputField = screen.queryByDisplayValue('0');
     const plusButton = screen.getByRole('button', { name: '+' });
     const minusButton = screen.getByRole('button', { name: '-' });
 
     await user.click(plusButton);
-		await user.click(minusButton);
+    await user.click(minusButton);
     expect(inputField.value).toMatch('0');
   });
-	it('Decrement button doesnt go negative', async () => {
+  it('Decrement button doesnt go negative', async () => {
     const user = userEvent.setup();
     const inputField = screen.queryByDisplayValue('0');
     const minusButton = screen.getByRole('button', { name: '-' });
 
-		await user.click(minusButton);
+    await user.click(minusButton);
     expect(inputField.value).toMatch('0');
   });
 });

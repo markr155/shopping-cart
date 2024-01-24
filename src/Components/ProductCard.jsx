@@ -26,6 +26,7 @@ const ProductCard = ({ name, img, price, description }) => {
           />
           <button onClick={() => incrementProductNum(true)}>+</button>
         </div>
+				<button>Add to Cart</button>
       </div>
     </>
   );
