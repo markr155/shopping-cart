@@ -9,7 +9,7 @@ import ProductCard from '../src/Components/ProductCard';
 import { beforeAll } from 'vitest';
 
 describe('Product card renders each element', () => {
-	beforeAll(() => {
+	beforeEach(() => {
 		render(
 			<ProductCard
 				name={'name'}
@@ -20,6 +20,15 @@ describe('Product card renders each element', () => {
 		);
 	});
 	it('Name of product rendered', () => {
-		expect(screen.getByText('name')).toBeInDocument();
+		expect(screen.queryByText('name')).toBeInTheDocument();
 	});
+	it('Image rendered', () => {
+		expect(screen.queryByAltText('name')).toBeInTheDocument();
+	});
+	it('Price rendered', () => {
+		expect(screen.queryByText('100')).toBeInTheDocument();
+	});
+	it('Description rendered', () => {
+		expect(screen.queryByText('description')).toBeInTheDocument();
+	})
 });

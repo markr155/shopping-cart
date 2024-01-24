@@ -1,14 +1,39 @@
 import { useOutletContext } from 'react-router-dom';
 import ProductCard from '../Components/ProductCard';
+import { useEffect, useState } from 'react';
 
-export default function Store() {
+const Store = () => {
 	const [cart, setCart] = useOutletContext();
-	fetch('https://fakestoreapi.com/products/1')
-            .then(res=>res.json())
-            .then(json=>console.log(json))
+	const [products, setProducts] = useState([]);
+
+	const getProducts = async () => {
+		const response = await fetch('https://fakestoreapi.com/products?limit=4');
+		const products = await response.json();
+		console.log(products);
+		return products;
+	};
+
+	useEffect(() => {
+		getProducts().then((results) => setProducts(results));
+	}, []);
+
 	return (
 		<>
 			<h1>Store Page</h1>
+			{products &&
+				products.map((product) => {
+					return (
+						<ProductCard
+							key={product.id}
+							name={product.title}
+							img={product.image}
+							price={product.price}
+							description={product.description}
+						/>
+					);
+				})}
 		</>
 	);
-}
+};
+
+export default Store;

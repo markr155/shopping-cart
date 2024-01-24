@@ -9,9 +9,9 @@ describe('Home Page renders elements', () => {
   })
 
 	it('Image renders', () => {
-		expect(screen.getByRole('img'), {name: 'Shop image'}).toBeInTheDocument();
+		expect(screen.queryByRole('img'), {name: 'Shop image'}).toBeInTheDocument();
 	});
   it('Shop Button renders', () => {
-    expect(screen.getByRole('button', {name: 'Shop Now'})).toBeInTheDocument();
+    expect(screen.queryByRole('button', {name: 'Shop Now'})).toBeInTheDocument();
   })
 });
