@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import ProductCard from '../src/Components/ProductCard';
-import { beforeAll } from 'vitest';
+import { beforeAll, expect } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
 describe('Product card renders each element', () => {
+  const handleAddToCart = vi.fn();
   beforeEach(() => {
     render(
       <ProductCard
@@ -11,6 +12,7 @@ describe('Product card renders each element', () => {
         img={'/'}
         price={'100'}
         description={'description'}
+        handleAddToCart={handleAddToCart}
       />
     );
   });
@@ -65,5 +67,13 @@ describe('Product card renders each element', () => {
 
     await user.click(minusButton);
     expect(inputField.value).toMatch('0');
+  });
+  it('Clicking add to cart calls handleAddToCart', async () => {
+    const user = userEvent.setup();
+    const addCardButton = screen.getByRole('button', { name: 'Add to Cart' });
+
+    await user.click(addCardButton);
+
+    expect(handleAddToCart).toBeCalled();
   });
 });

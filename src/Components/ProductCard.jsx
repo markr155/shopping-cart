@@ -1,13 +1,13 @@
 import { useState } from 'react';
-const ProductCard = ({ name, img, price, description }) => {
-  const [productNum, setProductNum] = useState(0);
+const ProductCard = ({ name, img, price, description, handleAddToCart }) => {
+  const [productQuantity, setProductQuantity] = useState(0);
 
   const incrementProductNum = (isAdding) => {
     isAdding
-      ? setProductNum((productNum) => productNum + 1)
-      : setProductNum((productNum) => {
-				if (productNum === 0) return productNum
-				return productNum - 1});
+      ? setProductQuantity((quantity) => quantity + 1)
+      : setProductQuantity((quantity) => {
+				if (quantity === 0) return quantity
+				return quantity - 1});
   };
 
   return (
@@ -21,12 +21,12 @@ const ProductCard = ({ name, img, price, description }) => {
           <button onClick={() => incrementProductNum(false)}>-</button>
           <input
             type='number'
-            value={productNum}
-            onChange={(e) => setProductNum(parseInt(e.target.value))}
+            value={productQuantity}
+            onChange={(e) => setProductQuantity(parseInt(e.target.value))}
           />
           <button onClick={() => incrementProductNum(true)}>+</button>
         </div>
-				<button>Add to Cart</button>
+				<button onClick={() => handleAddToCart(name, img, price, description, productQuantity)}>Add to Cart</button>
       </div>
     </>
   );
