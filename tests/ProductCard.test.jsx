@@ -32,6 +32,6 @@ describe('Product card renders each element', () => {
 		expect(screen.queryByText('+')).toBeInTheDocument();
 	});
 	it('Number field rendered', () => {
-		expect(screen.queryByRole('input')).toBeInTheDocument();
+		expect(screen.queryByDisplayValue('0')).toBeInTheDocument();
 	})
 });
