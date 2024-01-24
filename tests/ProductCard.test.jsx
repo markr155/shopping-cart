@@ -1,9 +1,3 @@
-// product cards
-// Name
-// img
-// Price
-// descripion
-// minus|num|plus - Add to Cart btn
 import { render, screen } from '@testing-library/react';
 import ProductCard from '../src/Components/ProductCard';
 import { beforeAll } from 'vitest';
@@ -30,5 +24,14 @@ describe('Product card renders each element', () => {
 	});
 	it('Description rendered', () => {
 		expect(screen.queryByText('description')).toBeInTheDocument();
+	});
+	it('Decrement product number button rendered', () => {
+		expect(screen.queryByText('-')).toBeInTheDocument();
+	});
+	it('Increment product number button rendered', () => {
+		expect(screen.queryByText('+')).toBeInTheDocument();
+	});
+	it('Number field rendered', () => {
+		expect(screen.queryByRole('input')).toBeInTheDocument();
 	})
 });
