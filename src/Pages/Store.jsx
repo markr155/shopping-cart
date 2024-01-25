@@ -1,6 +1,14 @@
 import { useOutletContext } from 'react-router-dom';
 import ProductCard from '../Components/ProductCard';
-import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+
+const ProductsContainer = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	
+`;
 
 const Store = () => {
 	const [cart, setCart] = useOutletContext().cart;
@@ -9,20 +17,21 @@ const Store = () => {
 
 	return (
 		<>
-			<h1>Store Page</h1>
-			{products &&
-				products.map((product) => {
-					return (
-						<ProductCard
-							key={product.id}
-							name={product.title}
-							img={product.image}
-							price={product.price}
-							description={product.description}
-							handleAddToCart={handleAddToCart}
-						/>
-					);
-				})}
+			<ProductsContainer>
+				{products &&
+					products.map((product) => {
+						return (
+							<ProductCard
+								key={product.id}
+								name={product.title}
+								img={product.image}
+								price={product.price}
+								description={product.description}
+								handleAddToCart={handleAddToCart}
+							/>
+						);
+					})}
+			</ProductsContainer>
 		</>
 	);
 };
